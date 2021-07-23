@@ -5,12 +5,12 @@ const app = express();
 
 const PORT = 3000;
 
-// serve static files
-app.use(express.static(path.join(__dirname, 'client/dist/')));
-
 // middleware here.
 app.use(express.json());
 app.use(express.urlencoded());
+
+// serve static files
+app.use('/', express.static(path.resolve(__dirname, '../client/dist')));
 
 // Simple Routes
 app.get('/test', (req, res) => {
